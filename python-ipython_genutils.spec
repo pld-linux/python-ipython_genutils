@@ -9,7 +9,7 @@ Summary:	IPython vestigial utilities
 # Summary(pl.UTF-8):	-
 Name:		python-%{module}
 Version:	0.2.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries/Python
 Source0:	https://github.com/ipython/ipython_genutils/archive/%{version}.tar.gz

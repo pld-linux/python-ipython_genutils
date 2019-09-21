@@ -9,7 +9,7 @@ Summary:	IPython vestigial utilities
 Summary(pl.UTF-8):	Pozostałe narzędzia IPythona
 Name:		python-%{module}
 Version:	0.2.0
-Release:	3
+Release:	4
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://github.com/ipython/ipython_genutils/releases
@@ -97,10 +97,13 @@ rm -rf $RPM_BUILD_ROOT
 %py_install
 
 %py_postclean
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/ipython_genutils/tests
 %endif
 
 %if %{with python3}
 %py3_install
+
+%{__rm} -r $RPM_BUILD_ROOT%{py3_sitescriptdir}/ipython_genutils/tests
 %endif
 
 %clean

@@ -9,7 +9,7 @@ Summary:	IPython vestigial utilities
 Summary(pl.UTF-8):	Pozostałe narzędzia IPythona
 Name:		python-%{module}
 Version:	0.2.0
-Release:	4
+Release:	5
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://github.com/ipython/ipython_genutils/releases

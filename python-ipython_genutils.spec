@@ -9,12 +9,13 @@ Summary:	IPython vestigial utilities
 Summary(pl.UTF-8):	Pozostałe narzędzia IPythona
 Name:		python-%{module}
 Version:	0.2.0
-Release:	11
+Release:	12
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://github.com/ipython/ipython_genutils/releases
 # TODO:		https://github.com/ipython/ipython_genutils/archive/%{version}/%{module}-%{version}.tar.gz
 Source0:	https://github.com/ipython/ipython_genutils/archive/%{version}.tar.gz
+Patch0:		pynose.patch
 # Source0-md5:	477e596a0e6e2f74ec08ec09687eeb6c
 URL:		https://github.com/ipython/ipython_genutils
 %if %(locale -a | grep -q '^C\.utf8$'; echo $?)
@@ -31,7 +32,7 @@ BuildRequires:	python-nose
 BuildRequires:	python3-modules >= 1:3.3
 BuildRequires:	python3-setuptools
 %if %{with tests}
-BuildRequires:	python3-nose
+BuildRequires:	python3-pynose
 %endif
 %endif
 BuildRequires:	rpm-pythonprov
@@ -71,6 +72,7 @@ najbliższym możliwym czasie, a ten pakiet przestanie istnieć.
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch -P0 -p1
 
 %build
 %if %{with python2}
@@ -86,7 +88,7 @@ nosetests-%{py_ver} ipython_genutils
 %py3_build
 
 %if %{with tests}
-nosetests-%{py3_ver} ipython_genutils
+nosetests ipython_genutils
 %endif
 %endif
 
